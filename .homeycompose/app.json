@@ -1,6 +1,6 @@
 {
   "id": "com.rexwel.bmwconnected",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -29,6 +29,9 @@
       {
         "name": "Sander Schutten",
         "email": "sander@dotnetstudio.nl"
+      },
+      {
+        "name": "Danee de Kruijff"
       }
     ],
     "translators": [
