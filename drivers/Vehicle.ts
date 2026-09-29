@@ -386,8 +386,8 @@ export class Vehicle extends Device {
    * Rate limit: BMW CarData API has 50 requests/24h per vehicle limit.
    * Recommended minimum interval: 30 minutes (48 requests/day).
    */
-  private startApiPolling(): void {
-    const settings = this.settings;
+  private startApiPolling(settings: DeviceSettings = this.settings): void {
+    // const settings = this.settings;
 
     // Stop existing timer if running
     this.stopApiPolling();
@@ -794,7 +794,7 @@ export class Vehicle extends Device {
 
       // Start or stop API polling based on current enabled state
       if (settings.apiPollingEnabled) {
-        this.startApiPolling();
+        this.startApiPolling(settings);
       } else {
         this.stopApiPolling();
       }
