@@ -2,7 +2,7 @@
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.rexwel.bmwconnected",
   "version": "1.0.15",
-  "compatibility": ">=5.0.0",
+  "compatibility": ">=12.3.0",
   "sdk": 3,
   "name": {
     "en": "BMW / Mini Connected"
@@ -70,6 +70,14 @@
     "getClientTokens": {
       "method": "GET",
       "path": "/getClientTokens"
+    },
+    "getWidgetImage": {
+      "method": "GET",
+      "path": "/getWidgetImage"
+    },
+    "setWidgetImage": {
+      "method": "POST",
+      "path": "/setWidgetImage"
     }
   },
   "bugs": {
@@ -1023,6 +1031,45 @@
       ]
     }
   ],
+  "widgets": {
+    "car-information": {
+      "name": {
+        "en": "Battery status",
+        "nl": "Batterijstatus"
+      },
+      "height": 110,
+      "settings": [
+        {
+          "id": "device",
+          "type": "autocomplete",
+          "title": {
+            "en": "Car",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "showImage",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Show car image",
+            "nl": "Autoafbeelding tonen"
+          }
+        }
+      ],
+      "api": {
+        "getStatus": {
+          "method": "GET",
+          "path": "/status"
+        },
+        "getImage": {
+          "method": "GET",
+          "path": "/image"
+        }
+      },
+      "id": "car-information"
+    }
+  },
   "capabilities": {
     "caralarm_state": {
       "type": "enum",
@@ -1063,7 +1110,18 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "/assets/shield-car.svg"
+      "icon": "/assets/car-shield.svg"
+    },
+    "carcharging_eta": {
+      "type": "string",
+      "title": {
+        "en": "Charging complete",
+        "nl": "Laden gereed"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/car-charging-eta.svg"
     },
     "charging_status_capability": {
       "type": "enum",
